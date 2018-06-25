@@ -1,0 +1,25 @@
+DATA_DIRECTORY: '../Data/pages/'
+MODEL_DIRECTORY: 'pages/'
+
+CLASSES: ['__background__', 'Al','Ay','B','D','G','He','Het','K','K-f','L','M','M-m','N-f','N-m','P','P-f','Q','R','Sa','Sh','Ta','Te','Ts-f','Ts-m','W','Y','Z']
+NUM_CLASSES: 28
+
+NATURAL_IMAGE: False
+
+RPN_ANCHOR_SCALES: [1, 2, 3]
+
+RPN_OUTPUT_CHANNELS: [512]
+RPN_FILTER_SIZES: [3]
+FRCNN_FC_HIDDEN: [1024,1024]
+
+VRAM: 4.0
+
+TRAIN:
+  USE_HORZ_FLIPPED: False
+  RPN_PRE_NMS_TOP_N: 12000
+  RPN_POST_NMS_TOP_N: 2000 
+
+TEST:
+  RPN_PRE_NMS_TOP_N: 6000
+  RPN_POST_NMS_TOP_N: 400
+  CMAP: 'gray'
