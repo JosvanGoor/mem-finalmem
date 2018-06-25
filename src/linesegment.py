@@ -54,7 +54,7 @@ def getSliceHist(image, n_slices, exp_text_width, line_array, threshold, oversho
 	for count, i in enumerate(line_array):
 		if i>=1 and start_line==0:
 			start_line = count
-		elif i>2 and start_line!=0:
+		elif i>1 and start_line!=0:
 			is_line = True
 		elif i<=1 and is_line:
 			is_line = False
