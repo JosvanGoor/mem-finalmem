@@ -117,7 +117,7 @@ def showSegments(im, line_tuples, pad, height, width):
 		cv2.waitKey(0)
 
 
-def segmentLine(image, exp_text_width=20, pad=10, PSL_width=128, threshold=8, showseg=0, useHist=0):
+def segmentLine(image, exp_text_width=20, pad=10, PSL_width=128, threshold=10, showseg=0, useHist=0):
 	#image = cv2.imread(imname,0)
 	# image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 	# image = cv2.resize(image, (0,0), fx=0.5, fy=0.5)
@@ -126,7 +126,7 @@ def segmentLine(image, exp_text_width=20, pad=10, PSL_width=128, threshold=8, sh
 
 	overshoot = int(width%PSL_width)
 	n_slices = int(width/PSL_width)
-	threshold = PSL_width/8
+	threshold = PSL_width/threshold
 	line_array = [0]*height
 
 	if(useHist):
