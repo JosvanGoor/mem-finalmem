@@ -21,8 +21,8 @@ classes = \
     "Kaf-medial",
     "Kaf-final",
     "Lamed",
-    "Mem-medial",
     "Mem-final",
+    "Mem-medial",
     "Nun-final",
     "Nun-medial",
     "Pe",
@@ -131,5 +131,5 @@ def run_network(yamlname = "RBA"):
 
     os.chdir("{}/network/Models/".format(wd))
     #return subprocess.call(["python3 faster_rcnn_conv5.py -r 1 -m 3 -f 1 -t 0 -v 1 -i 1 -y '{}.yml'".format(yamlname)])
-    os.system("python3 faster_rcnn_conv5.py -r 1 -m 3 -f 1 -t 0 -v 1 -i 1 -y '{}.yml'".format(yamlname))
+    os.system("python3 faster_rcnn_conv5.py -r 1 -m 3 -f 4 -t 0 -v 1 -i 1 -y '{}.yml'".format(yamlname))
     os.chdir(wd)

@@ -47,7 +47,7 @@ __C.NUM_CLASSES = 1
 __C.RPN_ANCHOR_SCALES = [8, 16, 32]
 
 # RPN CNN parameters
-__C.RPN_OUTPUT_CHANNELS = [512]
+__C.RPN_OUTPUT_CHANNELS = [256]
 __C.RPN_FILTER_SIZES    = [3]
 
 # Fast R-CNN Fully Connected Layer hidden unit number
@@ -82,7 +82,7 @@ __C.TRAIN.LEARNING_RATE_DECAY_RATE = 10
 __C.TRAIN.IMS_PER_BATCH = 1
 
 # Minibatch size (number of regions of interest [ROIs])
-__C.TRAIN.BATCH_SIZE = 128
+__C.TRAIN.BATCH_SIZE = 64
 
 # Fraction of minibatch that is labeled foreground (i.e. class > 0)
 __C.TRAIN.FG_FRACTION = 0.25
@@ -182,7 +182,7 @@ __C.TEST.HAS_RPN = True
 
 
 # NMS threshold used on RPN proposals
-__C.TEST.RPN_NMS_THRESH = 0.1 
+__C.TEST.RPN_NMS_THRESH = 0.3 
 # Number of top scoring boxes to keep before apply NMS to RPN proposals
 __C.TEST.RPN_PRE_NMS_TOP_N = 2048 
 # Number of top scoring boxes to keep after applying NMS to RPN proposals
@@ -192,7 +192,7 @@ __C.TEST.RPN_MIN_SIZE = 16
 
 # NMS overlap threshold used post-refinement (suppress boxes with
 # IoU >= this threshold)
-__C.TEST.NMS = 0.3
+__C.TEST.NMS = 0.2
 
 
 # Evaluate with test ground truth (Turn off for deployment, when you don't have gt info)
