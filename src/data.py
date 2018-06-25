@@ -2,6 +2,7 @@ import cv2
 
 import preprocessing as pp
 import linesegment as ls
+from network import strip_extention
 
 class Character:
 
@@ -62,7 +63,7 @@ class Image:
         print("done!")
 
     def output_annotation(self, linedata):
-        with open("{}/{}.txt".format(self.folder, self.filename), "w+") as file:
+        with open("{}/{}.txt".format(self.folder, strip_extention(self.filename)), "w+") as file:
             for line in self.line_names:
                 for char in linedata[line]:
                     file.write("{} ".format(char.name))
