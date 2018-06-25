@@ -74,12 +74,14 @@ def write_files(image_list, network_folder = "network", setname="RBA"):
     with open("{}/test.txt".format(names_folder), "w+") as file:
         for name in nameslist:
             file.write("{}\n".format(name))
-    with open("{}/train.txt".format(names_folder), "w+") as file:
-        for name in nameslist:
-            file.write("{}\n".format(name))
-    with open("{}/valid.txt".format(names_folder), "w+") as file:
-        for name in nameslist:
-            file.write("{}\n".format(name))
+    if not os.path.isfile("{}/train.txt".format(names_folder)):
+        with open("{}/train.txt".format(names_folder), "w+") as file:
+            for name in nameslist:
+                file.write("{}\n".format(name))
+    if not os.path.isfile("{}/valid.txt".format(names_folder)):
+        with open("{}/valid.txt".format(names_folder), "w+") as file:
+            for name in nameslist:
+                file.write("{}\n".format(name))
 
 
     print("done")
