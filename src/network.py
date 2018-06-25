@@ -63,7 +63,6 @@ def write_files(image_list, network_folder = "network", setname="RBA"):
     
     if not os.path.isdir(image_folder): os.makedirs(image_folder)
     if not os.path.isdir(names_folder): os.makedirs(names_folder)
-    #TODO: clean folders.
 
     nameslist = []
     
@@ -71,7 +70,7 @@ def write_files(image_list, network_folder = "network", setname="RBA"):
     for image in image_list:
         nameslist = nameslist + write_image_files(image, image_folder)
 
-    # write nameslist
+    # write nameslist(s)
     with open("{}/test.txt".format(names_folder), "w+") as file:
         for name in nameslist:
             file.write("{}\n".format(name))
@@ -94,9 +93,6 @@ def list_characters(nameslist, pkl_file):
 
     rval = {}
 
-    #print("nameslist: {}".format(len(nameslist)))
-    #print("data: {}".format(len(data)))
-
     for fname, line in zip(nameslist, data):
         charlist = []
         for rect, name in zip(line[0], line[1]):
@@ -107,6 +103,7 @@ def list_characters(nameslist, pkl_file):
         rval[key] = sorted(val, key = lambda thing: thing.rect[0])
 
     return rval
+
 
 def check_ready():
     if not os.path.isdir("network/Logs/RBA/"):
@@ -130,6 +127,5 @@ def run_network(yamlname = "RBA"):
         shutil.rmtree("network/Data/{}/Outputs/".format(yamlname))
 
     os.chdir("{}/network/Models/".format(wd))
-    #return subprocess.call(["python3 faster_rcnn_conv5.py -r 1 -m 3 -f 1 -t 0 -v 1 -i 1 -y '{}.yml'".format(yamlname)])
     os.system("python3 faster_rcnn_conv5.py -r 1 -m 3 -f 4 -t 0 -v 1 -i 1 -y '{}.yml'".format(yamlname))
     os.chdir(wd)
