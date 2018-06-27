@@ -38,10 +38,11 @@ class Image:
         image = (image * (mask // 255))
         image = pp.subimage(image, rect)
         image2 = pp.get_gauss_otsu(image)
+
         self.image = pp.fill_white(image2)
         print("done!")
     
-    def fill_gaps(self):
+    def fill_gaps(self): #unused, didnt improve anything.
         contours = pp.get_all_rects(self.image)
         
         avg_size = 0

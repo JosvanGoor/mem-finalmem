@@ -3,7 +3,6 @@ import pickle
 import re
 import os
 import shutil
-import subprocess
 
 import data as d
 import network as n

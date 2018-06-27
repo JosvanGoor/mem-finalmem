@@ -11,10 +11,18 @@ def fill_white(image):
     floodflags |= cv2.FLOODFILL_MASK_ONLY
     floodflags |= (255 << 8)
 
+    # corners
     num, img, mask, rect = cv2.floodFill(image, mask, seed, 255)
     num, img, mask, rect = cv2.floodFill(img, mask, (w-2, h-2), 255)
     num, img, mask, rect = cv2.floodFill(img, mask, (0, h-2), 255)
     num, img, mask, rect = cv2.floodFill(img, mask, (w-2, 0), 255)
+
+    #middle of edges
+    num, img, mask, rect = cv2.floodFill(image, mask, (w//2, 1), 255)
+    num, img, mask, rect = cv2.floodFill(img, mask, (1, h//2-2), 255)
+    num, img, mask, rect = cv2.floodFill(img, mask, (w//2-2, h-2), 255)
+    num, img, mask, rect = cv2.floodFill(img, mask, (w-2, h//2), 255)
+
     return img
 
 def get_gauss_otsu(image):

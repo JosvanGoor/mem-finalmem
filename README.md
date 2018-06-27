@@ -1,5 +1,20 @@
 # MemMem
 
+Dependency list:
+* python-opencv
+* numpy
+* scipy
+* tqdm
+* tensorflow
+* cython
+* pillow
+* easydict
+* matplotlib
+* pyyaml
+* 
+
+
+
 Filenamelist in:
 network/Data/??/Names/test.txt
 images in network/Data/??/Images/*.*
