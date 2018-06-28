@@ -128,5 +128,5 @@ def run_network(yamlname = "RBA"):
         shutil.rmtree("network/Data/{}/Outputs/".format(yamlname))
 
     os.chdir("{}/network/Models/".format(wd))
-    os.system("python3 faster_rcnn_conv5.py -r 1 -m 6 -f 1 -t 0 -v 1 -i 1 -y '{}.yml'".format(yamlname))
+    os.system("python3 faster_rcnn_conv5.py -r 1 -m 4 -f 4 -t 0 -v 1 -i 1 -y '{}.yml'".format(yamlname))
     os.chdir(wd)
