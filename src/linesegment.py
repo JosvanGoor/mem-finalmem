@@ -75,7 +75,7 @@ def getSeg(image, top, bot):
 	count = 0
 	for i in range(imw):
 		if sum(image[0:imh,i])/255<imh:
-			if count > 5:
+			if count > 10:
 				seg = np.pad(seg,((0,0),(0,10)),mode='constant')
 				segw = seg.shape[1]
 				seg[0:imh,segw-10:segw] = np.ones([imh,10], dtype=np.uint8)*255
