@@ -250,7 +250,7 @@ def _vis_detections(im, gt_boxes, dets, cls, filename=None, skip_background=True
             
         # Plot the rectangle
         class_name = cfg.CLASSES[cls[i]]
-        _plot_patch(ax, bb, prob, class_name, color)
+        _plot_patch(ax, bb, prob, cls[i], color)
 
     # Save figure
     if filename is not None:
@@ -273,8 +273,8 @@ def _plot_patch(ax, bbox, prob, class_name, color):
     ax.add_patch(rect)
 
     # Add confidence prob and class text to box
-    #if prob is not None:
-     #   ax.text(bbox[0], bbox[1] - 2,
-      #          '{:s} {:.3f}'.format(class_name, prob),
-       #         bbox=dict(facecolor=color, alpha=0.5),
-        #        fontsize=8, color='white')
+    if prob is not None:
+        ax.text(bbox[0], bbox[1] - 2,
+                '{:d}'.format(class_name),
+                bbox=dict(facecolor=color, alpha=0.2),
+                fontsize=6, color='black')

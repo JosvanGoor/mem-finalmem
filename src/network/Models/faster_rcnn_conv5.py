@@ -89,7 +89,7 @@ class FasterRcnnConv5(Model):
         # VALID and TEST are both evaluation mode
         eval_mode = True if (key == 'EVAL') else False
 
-        self.cnn[key] = convnet(x, [5, 3, 3, 3, 3], [64, 128, 128, 256, 256], strides=[2, 2, 1, 2, 1])
+        self.cnn[key] = convnet(x, [7,5, 3, 3, 3, 3,3], [32, 64, 64, 128, 128, 256, 256], strides=[2, 2, 2, 1, 2, 1, 1])
         feature_maps = self.cnn[key].get_output()
         _feat_stride = self.cnn[key].get_feat_stride()
 
